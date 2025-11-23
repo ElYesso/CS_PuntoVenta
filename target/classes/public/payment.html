@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método de pago - Carolina Joyería</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div class="app-wrapper">
+    <header class="app-navbar">
+        <div class="app-logo">Carolina Joyería</div>
+        <nav class="app-nav-links">
+            <a href="home.html">Inicio</a>
+            <a href="#">Guardados</a>
+            <a href="cart.html">Carrito</a>
+            <a href="#">Usuario</a>
+        </nav>
+    </header>
+
+    <main class="app-main">
+        <h2>Selecciona tu método de pago</h2>
+
+        <section class="cart-layout">
+            <div class="cart-summary">
+                <h3>Resumen de compra</h3>
+                <p>Productos: <span id="paymentItemsCount">1</span></p>
+                <p>Total: <strong id="paymentTotal">$50.00 MXN</strong></p>
+            </div>
+
+            <div>
+                <div class="payment-methods">
+                    <div class="payment-method active" data-type="debito">
+                        Débito
+                    </div>
+                    <div class="payment-method" data-type="credito">
+                        Crédito
+                    </div>
+                    <div class="payment-method" data-type="paypal">
+                        PayPal
+                    </div>
+                </div>
+
+                <form class="payment-form" id="paymentForm">
+                    <label>Titular de la tarjeta</label>
+                    <input type="text" name="titular" required>
+
+                    <label>Número de tarjeta</label>
+                    <input type="text" name="numeroTarjeta" required>
+
+                    <label>Fecha de vencimiento</label>
+                    <input type="month" name="fechaVencimiento" required>
+
+                    <label>CVV</label>
+                    <input type="password" name="cvv" required>
+
+                    <button type="submit"
+                            class="btn btn-primary btn-full">
+                        Confirmar pago
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="/assets/js/app.js"></script>
+
+
+
+</body>
+</html>

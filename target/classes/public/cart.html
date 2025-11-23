@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito - Carolina Joyería</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div class="app-wrapper">
+    <header class="app-navbar">
+        <div class="app-logo">Carolina Joyería</div>
+        <nav class="app-nav-links">
+            <a href="home.html">Inicio</a>
+            <a href="#">Guardados</a>
+            <a href="cart.html" class="active">Carrito</a>
+            <a href="#">Usuario</a>
+        </nav>
+    </header>
+
+    <main class="app-main">
+        <h2>Carrito</h2>
+
+        <section class="cart-layout">
+            <!-- Lista de productos -->
+            <div class="cart-items" id="cartItems">
+                <div class="cart-item">
+                    <div>
+                        <strong>Anillo</strong><br>
+                        Descripción breve del anillo
+                    </div>
+
+                    <div>
+                        <span>Cantidad:</span>
+                        <div class="qty-control">
+                            <button>-</button>
+                            <span>1</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span>Precio:</span><br>
+                        <strong>$50.00 MXN</strong>
+                    </div>
+                </div>
+
+                <!-- Más items se agregan dinámicamente -->
+            </div>
+
+            <!-- Resumen de compra -->
+            <aside class="cart-summary">
+                <h3>Resumen de compra</h3>
+                <p>Productos: <span id="cartItemsCount">1</span></p>
+                <p>Total: <strong id="cartTotal">$50.00 MXN</strong></p>
+
+                <button class="btn btn-primary btn-full"
+                        onclick="window.location.href='payment.html'">
+                    Pagar
+                </button>
+            </aside>
+        </section>
+    </main>
+</div>
+<script src="/assets/js/app.js"></script>
+
+
+</body>
+</html>

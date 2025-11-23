@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión - Carolina Joyería</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="auth-card">
+        <h1 class="auth-title">Iniciar sesión</h1>
+
+        <form class="auth-form" id="loginForm" method="POST" action="/api/login">
+            <div class="input-group">
+                <span class="input-group-icon">👤</span>
+                <input 
+                    type="text"
+                    name="identificador"
+                    placeholder="Correo electrónico"
+                >
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-icon">🔒</span>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña"
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Iniciar sesión
+            </button>
+        </form>
+
+        <p class="auth-footer-text">
+            ¿Eres nuevo? <a href="register.html">¡Regístrate!</a>
+        </p>
+    </div>
+
+    <script src="/assets/js/app.js"></script>
+
+</body>
+</html>
