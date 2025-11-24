@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Inventario</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="inventario-body">
+
+<div class="inventario-container">
+    <div class="inventario-header">
+        <h1>Gestión de Inventario</h1>
+        <div class="inventario-actions">
+            <button class="btn btn-secondary" onclick="window.location.href='admin.html'">
+                ← Regresar
+            </button>
+            <button class="btn btn-primary" onclick="window.location.href='addProduct.html'">
+                + Agregar Producto
+            </button>
+        </div>
+    </div>
+
+    <div id="inventarioGrid">
+        Cargando inventario...
+    </div>
+</div>
+
+<!-- JS del proyecto -->
+<script src="/assets/js/app.js"></script>
+
+<!-- Lanzar la carga del inventario cuando la página esté lista -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof cargarInventario === "function") {
+        cargarInventario();
+    } else {
+        console.error("cargarInventario no está definida (¿se cargó app.js?)");
+    }
+});
+</script>
+
+</body>
+</html>

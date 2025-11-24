@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 40px;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            padding: 10px 22px;
+            border: none;
+            background: #2a6be0;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #1c4fb0;
+        }
+
+        .form-box {
+            width: 420px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .btn-save, .btn-cancel {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            margin-top: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn-save {
+            background: #2a6be0;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: #1d4db0;
+        }
+
+        .btn-cancel {
+            background: #777;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <button class="btn-primary" onclick="window.location.href='inventario.html'">← Regresar</button>
+</div>
+
+<div class="form-box">
+    <h2>Editar Producto</h2>
+
+    <input id="formId" placeholder="ID del producto" disabled>
+    <input id="formNombre" placeholder="Nombre del producto">
+    <input id="formPrecio" type="number" placeholder="Precio">
+    <input id="formCantidad" type="number" placeholder="Cantidad">
+    <input id="formImagen" placeholder="URL de la imagen">
+    <textarea id="formDescripcion" placeholder="Descripción"></textarea>
+
+    <button class="btn-save" onclick="guardarCambiosProducto()">Guardar Cambios</button>
+    <button class="btn-cancel" onclick="window.location.href='inventario.html'">Cancelar</button>
+</div>
+
+<script src="/assets/js/app.js"></script>
+
+<script>
+function getQueryParam(nombre) {
+    const url = new URLSearchParams(window.location.search);
+    return url.get(nombre);
+}
+
+const idProducto = getQueryParam("id");
+
+async function cargarDatosProducto() {
+    const res = await fetch(`/api/producto/${idProducto}`);
+    const p = await res.json();
+
+    formId.value = p.idProducto;
+    formNombre.value = p.nombreProducto;
+    formPrecio.value = p.precio;
+    formCantidad.value = p.cantidad;
+    formImagen.value = p.imagen;
+    formDescripcion.value = p.descripcion;
+}
+
+cargarDatosProducto();
+
+async function guardarCambiosProducto() {
+    const body =
+        "id=" + encodeURIComponent(formId.value) + "&" +
+        "nombre=" + encodeURIComponent(formNombre.value) + "&" +
+        "precio=" + encodeURIComponent(formPrecio.value) + "&" +
+        "cantidad=" + encodeURIComponent(formCantidad.value) + "&" +
+        "imagen=" + encodeURIComponent(formImagen.value) + "&" +
+        "descripcion=" + encodeURIComponent(formDescripcion.value);
+
+    await fetch("/api/admin/editarProducto", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body
+    });
+
+    alert("Producto actualizado correctamente.");
+    window.location.href = "inventario.html";
+}
+</script>
+
+</body>
+</html>

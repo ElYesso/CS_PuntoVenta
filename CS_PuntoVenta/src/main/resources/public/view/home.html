@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Carolina Joyería</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div class="app-wrapper">
+    <header class="app-navbar">
+        <div class="app-logo">Carolina Joyería</div>
+        <nav class="app-nav-links">
+            <a href="home.html" class="active">Inicio</a>
+            <a href="#">Guardados</a>
+            <a href="cart.html">Carrito</a>
+            <a href="#">Usuario</a>
+        </nav>
+    </header>
+
+    <main class="app-main">
+        <div class="products-grid" id="productsGrid">
+            <!-- Producto de ejemplo, luego se genera desde JS con datos del CSV -->
+            <article class="product-card" data-id="1111">
+                <img src="https://via.placeholder.com/200x150" alt="Anillo">
+                <div class="product-name">Anillo</div>
+                <div class="product-price">$50.00 MXN</div>
+            </article>
+
+            <article class="product-card" data-id="2222">
+                <img src="https://via.placeholder.com/200x150" alt="Pulsera">
+                <div class="product-name">Pulsera</div>
+                <div class="product-price">$20.00 MXN</div>
+            </article>
+
+            <!-- más tarjetas ... -->
+        </div>
+    </main>
+</div>
+<script src="/assets/js/app.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrarme - Carolina Joyería</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="auth-card">
+        <h1 class="auth-title">Registrarme</h1>
+
+        <form class="auth-form" id="registerForm">
+            <div class="input-group">
+                <span class="input-group-icon">👤</span>
+                <input type="text"
+                       name="nombre"
+                       placeholder="Ingresa tu nombre"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-icon">📍</span>
+                <input type="text"
+                       name="direccion"
+                       placeholder="Ingresa tu dirección"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-icon">📧</span>
+                <input type="email"
+                       name="correo"
+                       placeholder="Ingresa tu correo electrónico"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-icon">🔒</span>
+                <input type="password"
+                       name="password"
+                       placeholder="Ingresa tu contraseña"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-icon">🔒</span>
+                <input type="password"
+                       name="password2"
+                       placeholder="Ingresa nuevamente tu contraseña"
+                       required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Registrarme
+            </button>
+        </form>
+
+        <p class="auth-footer-text">
+            ¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a>
+        </p>
+    </div>
+
+    <!-- IMPORTANTE: app.js después del HTML -->
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>
